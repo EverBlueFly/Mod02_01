@@ -30,7 +30,10 @@
             <td>@Html.DisplayFor(m => it.Title)</td>
             <td>@Html.DisplayFor(m => it.Year)</td>
             <td>@Html.DisplayFor(m => it.Composer)</td>
-            <td>@Html.ActionLink("Details", "Details", new { id = it.OperaId})</td>    <!--顯示文字、Action、傳入參數?-->
+            <td>
+            @Html.ActionLink("Details", "Details", new { id = it.OperaId})
+            @Html.ActionLink("Edit","Edit", new { id = it.OperaId })
+            </td>    <!--顯示文字、Action、傳入參數?-->
         </tr>
     }
 </table>

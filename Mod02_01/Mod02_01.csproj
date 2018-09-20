@@ -283,6 +283,7 @@
     <Content Include="Views\Opera\Index.cshtml" />
     <Content Include="Views\Opera\Details.cshtml" />
     <Content Include="Views\Opera\Create.cshtml" />
+    <Content Include="Views\Opera\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

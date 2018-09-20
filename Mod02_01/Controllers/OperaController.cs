@@ -28,7 +28,7 @@ namespace Mod02_01.Controllers
         }
         public ActionResult Details(int? id)
         {
-            if (id == null || id == 0)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -53,6 +53,39 @@ namespace Mod02_01.Controllers
                 return RedirectToAction("Index");
             }
             return View(opera);
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            try
+            {
+                if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
+                Opera o = context.Operas.Find(id);
+                if (o == null) { return HttpNotFound(); }
+                return View(o);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost]
+        public ActionResult Edit(Opera opera)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    context.Entry(opera).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(opera);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
