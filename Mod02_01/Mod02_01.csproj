@@ -284,6 +284,7 @@
     <Content Include="Views\Opera\Details.cshtml" />
     <Content Include="Views\Opera\Create.cshtml" />
     <Content Include="Views\Opera\Edit.cshtml" />
+    <Content Include="Views\Opera\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

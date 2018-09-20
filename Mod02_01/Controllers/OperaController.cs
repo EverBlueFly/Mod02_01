@@ -87,5 +87,57 @@ namespace Mod02_01.Controllers
                 throw ex;
             }
         }
+        #region 跳確認頁去刪除
+        //public ActionResult Delete(int? id)
+        //{
+        //    try
+        //    {
+        //        if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
+        //        Opera o = context.Operas.Find(id);
+        //        if (o == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(o);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+        //[HttpPost, ActionName("Delete")]
+        //public ActionResult DeleteComfirm(int? id)
+        //{
+        //    try
+        //    {
+        //        Opera o = context.Operas.Find(id);
+        //        context.Operas.Remove(o);
+        //        context.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+        #endregion
+            //用JS讓USER在本機點選確定 就可以不用回後端進確認刪除頁 直接執行刪除
+        public ActionResult Delete(int? id)
+        {
+            try
+            {
+                if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
+                Opera o = context.Operas.Find(id);
+                if (o == null) { return HttpNotFound(); }
+                context.Operas.Remove(o);
+                context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -32,7 +32,8 @@
             <td>@Html.DisplayFor(m => it.Composer)</td>
             <td>
             @Html.ActionLink("Details", "Details", new { id = it.OperaId})
-            @Html.ActionLink("Edit","Edit", new { id = it.OperaId })
+            @Html.ActionLink("Edit", "Edit", new { id = it.OperaId })
+            @Html.ActionLink("Delete", "Delete", new { id = it.OperaId },new { onclick = "return confirm('確定要刪除此筆資料?');" })
             </td>    <!--顯示文字、Action、傳入參數?-->
         </tr>
     }
