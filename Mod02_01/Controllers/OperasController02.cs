@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -12,24 +11,24 @@ using Mod02_01.Models;
 
 namespace Mod02_01.Controllers
 {
-    public class OperasController : Controller
+    public class OperasController02 : Controller
     {
         private OperaContext db = new OperaContext();
 
         // GET: Operas
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.Operas.ToListAsync());
+            return View(db.Operas.ToList());
         }
 
         // GET: Operas/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Opera opera = await db.Operas.FindAsync(id);
+            Opera opera = db.Operas.Find(id);
             if (opera == null)
             {
                 return HttpNotFound();
@@ -48,12 +47,12 @@ namespace Mod02_01.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "OperaId,Title,Year,Composer")] Opera opera)
+        public ActionResult Create([Bind(Include = "OperaId,Title,Year,Composer")] Opera opera)
         {
             if (ModelState.IsValid)
             {
                 db.Operas.Add(opera);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -61,13 +60,13 @@ namespace Mod02_01.Controllers
         }
 
         // GET: Operas/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Opera opera = await db.Operas.FindAsync(id);
+            Opera opera = db.Operas.Find(id);
             if (opera == null)
             {
                 return HttpNotFound();
@@ -80,25 +79,25 @@ namespace Mod02_01.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "OperaId,Title,Year,Composer")] Opera opera)
+        public ActionResult Edit([Bind(Include = "OperaId,Title,Year,Composer")] Opera opera)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(opera).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(opera);
         }
 
         // GET: Operas/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Opera opera = await db.Operas.FindAsync(id);
+            Opera opera = db.Operas.Find(id);
             if (opera == null)
             {
                 return HttpNotFound();
@@ -109,11 +108,11 @@ namespace Mod02_01.Controllers
         // POST: Operas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Opera opera = await db.Operas.FindAsync(id);
+            Opera opera = db.Operas.Find(id);
             db.Operas.Remove(opera);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
