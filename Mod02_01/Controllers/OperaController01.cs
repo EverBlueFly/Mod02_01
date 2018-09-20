@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace Mod02_01.Controllers
 {
-    public class OperaController : Controller
+    public class OperaController01 : Controller
     {
         // GET: Opera
         private OperaContext context = new OperaContext();

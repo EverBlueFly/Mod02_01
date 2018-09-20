@@ -198,7 +198,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OperaController.cs" />
+    <Compile Include="Controllers\OperaController01.cs" />
+    <Compile Include="Controllers\OperasController.cs" />
     <Compile Include="DAL\OperaContext.cs" />
     <Compile Include="DAL\OperasInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,14 +278,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Opera\Index1.cshtml" />
+    <Content Include="Views\Opera01\Index1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Index.cshtml" />
-    <Content Include="Views\Opera\Index.cshtml" />
-    <Content Include="Views\Opera\Details.cshtml" />
-    <Content Include="Views\Opera\Create.cshtml" />
-    <Content Include="Views\Opera\Edit.cshtml" />
-    <Content Include="Views\Opera\Delete.cshtml" />
+    <Content Include="Views\Opera01\Index.cshtml" />
+    <Content Include="Views\Opera01\Details.cshtml" />
+    <Content Include="Views\Opera01\Create.cshtml" />
+    <Content Include="Views\Opera01\Edit.cshtml" />
+    <Content Include="Views\Opera01\Delete.cshtml" />
+    <Content Include="Views\Operas\Create.cshtml" />
+    <Content Include="Views\Operas\Delete.cshtml" />
+    <Content Include="Views\Operas\Details.cshtml" />
+    <Content Include="Views\Operas\Edit.cshtml" />
+    <Content Include="Views\Operas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
