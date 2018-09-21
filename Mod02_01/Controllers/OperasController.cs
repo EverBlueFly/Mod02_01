@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Mod02_01.DAL;
 using Mod02_01.Models;
+using System.Diagnostics;
 
 namespace Mod02_01.Controllers
 {
@@ -17,8 +18,10 @@ namespace Mod02_01.Controllers
         private OperaContext db = new OperaContext();
 
         // GET: Operas
+        [LogActionFilter]
         public async Task<ActionResult> Index()
         {
+            Debug.WriteLine("Opera.Index");
             return View(await db.Operas.ToListAsync());
         }
 
@@ -125,5 +128,6 @@ namespace Mod02_01.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
